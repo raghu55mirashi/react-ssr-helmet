@@ -1,25 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
+import { About } from './components/About'
+import { Contact } from './components/Contact'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Helmet>
+        <title>App</title>
+        <meta name="description" content="Todos!" />
+        <meta name="theme-color" content="#008f68" />
+      </Helmet>
+      <h1>This is App page</h1>
+
+      <Switch>
+        <Route exact path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+      </Switch>
+
     </div>
   );
 }
 
 export default App;
+
+      // <Route exact path="/" component={Contact} />
